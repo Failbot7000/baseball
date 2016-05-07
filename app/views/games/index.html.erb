@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Games</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Teamone</th>
+      <th>Teamtwo</th>
+      <th></th>
+      <th></th>
+      <th>Teamonevotes</th>
+      <th>Teamtwovotes</th>
+
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @games.each do |game| %>
+      <tr>
+        <td><%= game.TeamOne %></td>
+        <td><%= game.TeamTwo %></td>
+        <td><%= link_to "Vote For: #{game.TeamOne}", up_team_one_path(:id => game.id), class: "btn btn-primary" %></td>
+        <td><%= link_to "Vote For: #{game.TeamTwo}", up_team_two_path(:id => game.id), class: "btn btn-primary" %></td>
+        
+        <td><%= game.TeamOneVotes %></td>
+        <td><%= game.TeamTwoVotes %></td>
+        <% if current_user.admin? %>
+        <td><%= link_to 'Show', game %></td>
+        <td><%= link_to 'Edit', edit_game_path(game) %></td>
+        <td><%= link_to 'Destroy', game, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<% if current_user.admin? %>
+<%= link_to 'New Game', new_game_path %>
+<% end %>
+

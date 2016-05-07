@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  TeamOne: MyString
+  TeamTwo: MyString
+  TeamOneVotes: 1
+  TeamTwoVotes: 1
+
+two:
+  TeamOne: MyString
+  TeamTwo: MyString
+  TeamOneVotes: 1
+  TeamTwoVotes: 1

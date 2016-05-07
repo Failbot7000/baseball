@@ -10,9 +10,14 @@
       This is the home page for the Baseball voting application. This application will allow users to vote on which team they think will win during the entire baseball season. Only logged in users will be able to vote so be sure to sign up now.
     </p>
     <div style="text-align: center; padding: 5px;"> 
-    <%= link_to "Game voting page", "#" , class: "btn btn-lg btn-primary" %>
 
+  <% if current_user.present? %>
+   <%= link_to "Game voting page", games_path , class: "btn btn-lg btn-primary" %>
+    
+  <% else %>
     <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
+  <% end %>
   </div>
   </body>
 </html>
+

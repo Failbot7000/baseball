@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'password_resets/new'
+
+  get 'password_resets/edit'
+
   resources :games
   get 'sessions/new'
 
@@ -16,6 +20,7 @@ Rails.application.routes.draw do
   get 'up_team_one' => 'games#up_team_one'
   get 'up_team_two' => 'games#up_team_two'
 
-   resources :users
-    resources :account_activations, only: [:edit]
+  resources :users
+  resources :account_activations, only: [:edit]
+  resources :password_resets,     only: [:new, :create, :edit, :update]
 end

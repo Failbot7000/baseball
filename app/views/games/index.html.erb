@@ -26,7 +26,7 @@
         
         <td><%= game.TeamOneVotes %></td>
         <td><%= game.TeamTwoVotes %></td>
-        <% if current_user.admin? %>
+        <% if logged_in? && current_user.admin? %>
         <td><%= link_to 'Show', game %></td>
         <td><%= link_to 'Edit', edit_game_path(game) %></td>
         <td><%= link_to 'Destroy', game, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -37,7 +37,7 @@
 </table>
 
 <br>
-<% if current_user.admin? %>
+<% if logged_in? && current_user.admin? %>
 <%= link_to 'New Game', new_game_path %>
 <% end %>
 

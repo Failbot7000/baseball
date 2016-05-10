@@ -10,14 +10,14 @@ class GamesController < ApplicationController
   # GET /games/1
   # GET /games/1.json
   def show
-    if !current_user.admin?
+    if logged_in? && !current_user.admin?
       redirect_to games_path
     end
   end
 
   # GET /games/new
   def new
-    if !current_user.admin?
+    if logged_in? && !current_user.admin?
       redirect_to games_path
     end
     @game = Game.new
@@ -25,7 +25,7 @@ class GamesController < ApplicationController
 
   # GET /games/1/edit
   def edit
-    if !current_user.admin?
+    if logged_in? && !current_user.admin?
       redirect_to games_path
     end
   end
@@ -51,7 +51,7 @@ class GamesController < ApplicationController
   # POST /games
   # POST /games.json
   def create
-    if !current_user.admin?
+    if logged_in? && !current_user.admin?
       redirect_to games_path
     end
     @game = Game.new(game_params)
@@ -70,7 +70,7 @@ class GamesController < ApplicationController
   # PATCH/PUT /games/1
   # PATCH/PUT /games/1.json
   def update
-    if !current_user.admin?
+    if logged_in? && !current_user.admin?
       redirect_to games_path
     end
     respond_to do |format|
@@ -87,7 +87,7 @@ class GamesController < ApplicationController
   # DELETE /games/1
   # DELETE /games/1.json
   def destroy
-    if !current_user.admin?
+    if logged_in? && !current_user.admin?
       redirect_to games_path
     end
     @game.destroy

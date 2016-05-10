@@ -17,4 +17,5 @@ Rails.application.routes.draw do
   get 'up_team_two' => 'games#up_team_two'
 
    resources :users
+    resources :account_activations, only: [:edit]
 end
